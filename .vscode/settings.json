@@ -1,0 +1,20 @@
+{
+    "C_Cpp.default.includePath": ["hdr"],
+    "C_Cpp.default.compilerPath": "C:\\mingw64\\bin\\gcc.exe",
+    
+    "explorer.compactFolders": false,
+    "files.exclude": {
+        "**/.git": true,
+        "build" : true,
+    },
+    "files.associations": {
+        "log.h": "c",
+        "ttf.h": "c",
+        "fs.h": "c",
+        "shader.h": "c",
+        "object.h": "c",
+        "tchar.h": "c",
+        "io.h": "c",
+        "image.h": "c"
+    }
+}
