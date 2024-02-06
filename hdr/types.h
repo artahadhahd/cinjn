@@ -1,14 +1,14 @@
 #ifndef HDR_TYPES_H
 #define HDR_TYPES_H
-
+#include <stdint.h>
+typedef int8_t  i8;
+typedef int16_t i16;
+typedef int32_t i32;
+typedef int64_t i64;
+typedef uint8_t u8;
+typedef uint16_t u16;
+typedef uint32_t u32;
+typedef uint64_t u64;
 typedef float f32;
-typedef signed int i32;
-typedef unsigned int u32;
-typedef signed char i8;
-typedef unsigned char u8;
-typedef signed short int i16;
-typedef unsigned short int u16;
-typedef signed long long int i64;
-typedef unsigned long long int u64;
-
+typedef long double f64;
 #endif

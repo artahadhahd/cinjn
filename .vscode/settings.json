@@ -6,6 +6,9 @@
     "files.exclude": {
         "**/.git": true,
         "build" : true,
+        "hdr/glad": true,
+        "hdr/glfw3": true,
+        "hdr/stb": true,
     },
     "files.associations": {
         "log.h": "c",

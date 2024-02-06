@@ -75,7 +75,6 @@ struct shader* shader_from_file(const char* vertex_path, const char* fragment_pa
         s->id = program;
     }
     return s;
-    // return (ple == LOG_ERRORS) ? s : NULL;
 }
 
 void use_shader(const struct shader* shader)
@@ -117,7 +116,6 @@ struct shader* shader_from_module(const char* name, struct resource_manager* mgr
     const char* vertex_name = "vertex.glsl";
     const char* fragment_name = "fragment.glsl";
 
-    // LOG(module_path, LOG_SIMPLE);
     char* vertex_path = malloc(ALLOCATE_JOIN_PATH(module_path, vertex_name));
     join_path(vertex_path, module_path, vertex_name);
     char* fragment_path = malloc(ALLOCATE_JOIN_PATH(module_path, fragment_name));

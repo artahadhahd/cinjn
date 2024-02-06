@@ -13,7 +13,8 @@ struct object new_object(void)
         NULL, // indices
         vao,
         vbo,
-        ebo
+        ebo,
+        0
     };
 }
 
@@ -30,15 +31,15 @@ void attach_vertices(void* vertices, size_t vertex_length, size_t size, struct o
 
 static i32 ebo_len = 0;
 
-void draw_object(struct object* self)
+void draw_object(struct object* object)
 {
-    if (self->vertices == NULL) return;
-    use_shader(self->shader);
-    glBindVertexArray(self->vao);
-    if (self->indices != NULL) {
+    if (object->vertices == NULL) return;
+    glBindVertexArray(object->vao);
+    use_shader(object->shader);
+    if (object->indices != NULL) {
         glDrawElements(GL_TRIANGLES, ebo_len, GL_UNSIGNED_INT, 0);
         glBindVertexArray(0);
-    } else if (self->vertices != NULL) {
+    } else if (object->vertices != NULL) {
         glDrawArrays(GL_TRIANGLES, 0, 3);
         glBindVertexArray(0);
     }
@@ -53,21 +54,20 @@ void attach_indices(void* indices, i32 length, size_t size, struct object* objec
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, length * size, indices, GL_STATIC_DRAW);
 }
 
-void attach_shader(struct shader* shader, struct object* this)
+void attach_shader(struct shader* shader, struct object* object)
 {
-    this->shader = shader;
+    object->shader = shader;
 }
 
-void draw_wireframe(struct object* this)
+void draw_wireframe(struct object* object)
 {
-    if (this->vertices == NULL) return;
+    if (object->vertices == NULL) return;
     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-    // draw_object(this);
-    glBindVertexArray(this->vao);
-    if (this->indices != NULL) {
+    glBindVertexArray(object->vao);
+    if (object->indices != NULL) {
         glDrawElements(GL_TRIANGLES, ebo_len, GL_UNSIGNED_INT, 0);
         glBindVertexArray(0);
-    } else if (this->vertices != NULL) {
+    } else if (object->vertices != NULL) {
         glDrawArrays(GL_TRIANGLES, 0, 3);
         glBindVertexArray(0);
     }

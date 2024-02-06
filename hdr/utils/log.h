@@ -1,5 +1,5 @@
-#ifndef INJN_LOG_H
-#define INJN_LOG_H
+#ifndef HDR_UTILS_LOG_H
+#define HDR_UTILS_LOG_H
 #include <types.h>
 
 #include <stddef.h>

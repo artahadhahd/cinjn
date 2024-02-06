@@ -9,7 +9,7 @@
 
 struct object {
     struct shader* shader;
-    struct texture* textures;
+    void* textures;
     void* vertices;
     void* indices;
     u32 vao, vbo, ebo, texture;
